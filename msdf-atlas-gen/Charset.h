@@ -12,7 +12,7 @@ class Charset {
 
 public:
     /// The set of the 95 printable ASCII characters
-    static MSDF_ATLAS_PUBLIC const Charset ASCII;
+    static const Charset ASCII;
 
     /// Adds a codepoint
     void add(unicode_t cp);

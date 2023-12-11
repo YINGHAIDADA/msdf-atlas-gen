@@ -4,7 +4,6 @@
 #include <msdfgen.h>
 #include <msdfgen-ext.h>
 #include "types.h"
-#include "Rectangle.h"
 #include "GlyphBox.h"
 
 namespace msdf_atlas {
@@ -23,8 +22,6 @@ public:
     void wrapBox(double scale, double range, double miterLimit);
     /// Sets the glyph's box's position in the atlas
     void placeBox(int x, int y);
-    /// Sets the glyph's box's rectangle in the atlas
-    void setBoxRect(const Rectangle &rect);
     /// Returns the glyph's index within the font
     int getIndex() const;
     /// Returns the glyph's index as a msdfgen::GlyphIndex
@@ -37,8 +34,6 @@ public:
     const msdfgen::Shape & getShape() const;
     /// Returns the glyph's advance
     double getAdvance() const;
-    /// Returns the glyph's box in the atlas
-    Rectangle getBoxRect() const;
     /// Outputs the position and dimensions of the glyph's box in the atlas
     void getBoxRect(int &x, int &y, int &w, int &h) const;
     /// Outputs the dimensions of the glyph's box in the atlas
@@ -68,7 +63,9 @@ private:
     msdfgen::Shape::Bounds bounds;
     double advance;
     struct {
-        Rectangle rect;
+        struct {
+            int x, y, w, h;
+        } rect;
         double range;
         double scale;
         msdfgen::Vector2 translate;
