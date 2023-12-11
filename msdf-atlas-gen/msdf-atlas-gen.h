@@ -32,7 +32,7 @@
 #include "glyph-generators.h"
 #include "image-encode.h"
 #include "image-save.h"
-#include "artery-font-export.h"
+
 #include "csv-export.h"
 #include "json-export.h"
 #include "shadron-preview-generator.h"
